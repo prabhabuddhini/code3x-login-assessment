@@ -24,6 +24,10 @@ function Login() {
         const credential =
           GoogleAuthProvider.credentialFromResult(result);
 
+          if (!credential) {
+            return;
+          }
+
         const token = credential.accessToken;
 
         navigate("/access-token", { state: token });
